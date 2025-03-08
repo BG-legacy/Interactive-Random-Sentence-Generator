@@ -1,4 +1,7 @@
 # Interactive Random Sentence Generator
+![Screenshot 2025-03-08 at 3 26 01 PM](https://github.com/user-attachments/assets/e6febd9c-b526-459f-8e50-b78f4f3eb323)
+![Screenshot 2025-03-08 at 3 26 07 PM](https://github.com/user-attachments/assets/d67066b1-05b7-4701-af75-f4516e752ca9)
+
 
 A React-based web application that allows users to create random sentences by adding words to a word bank and generating grammatically correct sentences.
 
