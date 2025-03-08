@@ -1,0 +1,704 @@
+/* Main container for the landing page that covers the entire viewport */
+.landing-page {
+  /* Fixed positioning to cover the entire screen */
+  position: fixed;
+  /* Position from the top edge of the viewport */
+  top: 0;
+  /* Position from the left edge of the viewport */
+  left: 0;
+  /* Full width of the viewport */
+  width: 100%;
+  /* Full height of the viewport */
+  height: 100%;
+  /* Center content horizontally and vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Light gray background color */
+  background-color: #f5f5f5;
+  /* Ensure landing page appears above other content */
+  z-index: 1000;
+  /* Hide any content that exceeds the container */
+  overflow: hidden;
+}
+
+/* Mobile-specific styles for the landing page */
+.landing-page.mobile .drawing-board {
+  /* Reduced padding on mobile */
+  padding: 20px;
+  /* Auto height based on content */
+  height: auto;
+  /* Minimum height to ensure visibility */
+  min-height: 60%;
+  /* Maximum height to prevent overflow */
+  max-height: 90%;
+  /* Allow vertical scrolling if content exceeds container */
+  overflow-y: auto;
+  /* Align content to the top on mobile */
+  justify-content: flex-start;
+  /* Extra padding at the top */
+  padding-top: 40px;
+}
+
+/* Text styling for mobile devices - no animations */
+.landing-page.mobile .title,
+.landing-page.mobile .names,
+.landing-page.mobile .project {
+  /* Display text normally on mobile without animation */
+  white-space: normal;
+  /* Allow words to break to prevent overflow */
+  word-break: break-word;
+}
+
+/* Title text styling for mobile */
+.landing-page.mobile .title {
+  /* Smaller font size on mobile */
+  font-size: 1.8rem;
+  /* Space below the title */
+  margin-bottom: 15px;
+}
+
+/* Names text styling for mobile */
+.landing-page.mobile .names {
+  /* Smaller font size on mobile */
+  font-size: 1.4rem;
+  /* Space below the names */
+  margin-bottom: 15px;
+}
+
+/* Project title styling for mobile */
+.landing-page.mobile .project {
+  /* Smaller font size on mobile */
+  font-size: 1.1rem;
+  /* Space below the project title */
+  margin-bottom: 30px;
+}
+
+/* Enter button styling for mobile */
+.landing-page.mobile .enter-button {
+  /* Space above the button */
+  margin-top: 10px;
+  /* Internal padding */
+  padding: 10px 20px;
+  /* Smaller font size on mobile */
+  font-size: 1rem;
+}
+
+/* Main content container with drawing board background */
+.drawing-board {
+  /* Relative positioning for child elements */
+  position: relative;
+  /* 90% of the parent width */
+  width: 90%;
+  /* Maximum width to prevent stretching on large screens */
+  max-width: 900px;
+  /* 80% of the parent height */
+  height: 80%;
+  /* White background */
+  background-color: #fff;
+  /* Rounded corners */
+  border-radius: 8px;
+  /* Elevated shadow effect */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  /* Hide any content that exceeds the container */
+  overflow: hidden;
+  /* Internal padding */
+  padding: 40px;
+  /* Flex layout for vertical stacking */
+  display: flex;
+  flex-direction: column;
+  /* Center content vertically */
+  justify-content: center;
+  /* Center content horizontally */
+  align-items: center;
+}
+
+/* Base styles for all animated drawing elements */
+.drawing-element {
+  /* Absolute positioning relative to drawing board */
+  position: absolute;
+  /* Start invisible */
+  opacity: 0;
+  /* Keep final animation state */
+  animation-fill-mode: forwards;
+  /* Smooth animation timing */
+  animation-timing-function: ease-out;
+}
+
+/* First blue horizontal line */
+.line-1 {
+  /* Position from the top */
+  top: 20%;
+  /* Position from the left */
+  left: 10%;
+  /* Initial width (will be animated) */
+  width: 0;
+  /* Line thickness */
+  height: 3px;
+  /* Blue color */
+  background-color: #3498db;
+  /* Animation: name duration delay fill-mode */
+  animation: drawLine 1.5s 0.2s forwards;
+}
+
+/* Second red horizontal line */
+.line-2 {
+  /* Position from the bottom */
+  bottom: 30%;
+  /* Position from the right */
+  right: 15%;
+  /* Initial width (will be animated) */
+  width: 0;
+  /* Line thickness */
+  height: 3px;
+  /* Red color */
+  background-color: #e74c3c;
+  /* Animation: name duration delay fill-mode */
+  animation: drawLine 1.2s 0.5s forwards;
+}
+
+/* Third green diagonal line */
+.line-3 {
+  /* Position from the top */
+  top: 35%;
+  /* Position from the left */
+  left: 25%;
+  /* Initial width (will be animated) */
+  width: 0;
+  /* Line thickness */
+  height: 2px;
+  /* Green color */
+  background-color: #27ae60;
+  /* Rotate line 45 degrees */
+  transform: rotate(45deg);
+  /* Animation: name duration delay fill-mode */
+  animation: drawLine 1s 0.7s forwards;
+}
+
+/* Fourth yellow diagonal line */
+.line-4 {
+  /* Position from the bottom */
+  bottom: 40%;
+  /* Position from the right */
+  right: 30%;
+  /* Initial width (will be animated) */
+  width: 0;
+  /* Line thickness */
+  height: 2px;
+  /* Yellow color */
+  background-color: #f1c40f;
+  /* Rotate line -30 degrees */
+  transform: rotate(-30deg);
+  /* Animation: name duration delay fill-mode */
+  animation: drawLine 1.3s 0.9s forwards;
+}
+
+/* First green circle */
+.circle-1 {
+  /* Position from the top */
+  top: 25%;
+  /* Position from the right */
+  right: 20%;
+  /* Circle width */
+  width: 50px;
+  /* Circle height */
+  height: 50px;
+  /* Green border */
+  border: 3px solid #2ecc71;
+  /* Make it a perfect circle */
+  border-radius: 50%;
+  /* Initial scale (will be animated) */
+  transform: scale(0);
+  /* Animation: name duration delay fill-mode */
+  animation: drawCircle 1s 0.8s forwards;
+}
+
+/* Second orange circle */
+.circle-2 {
+  /* Position from the bottom */
+  bottom: 20%;
+  /* Position from the left */
+  left: 25%;
+  /* Circle width */
+  width: 30px;
+  /* Circle height */
+  height: 30px;
+  /* Orange border */
+  border: 3px solid #f39c12;
+  /* Make it a perfect circle */
+  border-radius: 50%;
+  /* Initial scale (will be animated) */
+  transform: scale(0);
+  /* Animation: name duration delay fill-mode */
+  animation: drawCircle 0.8s 1.2s forwards;
+}
+
+/* Third purple circle */
+.circle-3 {
+  /* Position from the top */
+  top: 60%;
+  /* Position from the right */
+  right: 35%;
+  /* Circle width */
+  width: 20px;
+  /* Circle height */
+  height: 20px;
+  /* Purple border */
+  border: 2px solid #9b59b6;
+  /* Make it a perfect circle */
+  border-radius: 50%;
+  /* Initial scale (will be animated) */
+  transform: scale(0);
+  /* Animation: name duration delay fill-mode */
+  animation: drawCircle 0.6s 1.4s forwards;
+}
+
+/* Purple squiggly line pattern */
+.squiggle {
+  /* Position from the top */
+  top: 60%;
+  /* Position from the left */
+  left: 15%;
+  /* Width of the pattern */
+  width: 100px;
+  /* Height of the pattern */
+  height: 20px;
+  /* Create alternating transparent and purple segments */
+  background: linear-gradient(90deg, 
+    transparent 0%, transparent 10%, 
+    #9b59b6 10%, #9b59b6 20%, 
+    transparent 20%, transparent 30%, 
+    #9b59b6 30%, #9b59b6 40%, 
+    transparent 40%, transparent 50%, 
+    #9b59b6 50%, #9b59b6 60%, 
+    transparent 60%, transparent 70%, 
+    #9b59b6 70%, #9b59b6 80%, 
+    transparent 80%, transparent 90%, 
+    #9b59b6 90%, #9b59b6 100%);
+  /* Start invisible */
+  opacity: 0;
+  /* Animation: name duration delay fill-mode */
+  animation: fadeIn 0.5s 1.5s forwards;
+}
+
+/* Red squiggly line pattern */
+.squiggle-2 {
+  /* Position from the bottom */
+  bottom: 15%;
+  /* Position from the right */
+  right: 15%;
+  /* Width of the pattern */
+  width: 80px;
+  /* Height of the pattern */
+  height: 15px;
+  /* Create alternating transparent and red segments */
+  background: linear-gradient(90deg, 
+    #e74c3c 0%, #e74c3c 20%, 
+    transparent 20%, transparent 40%, 
+    #e74c3c 40%, #e74c3c 60%, 
+    transparent 60%, transparent 80%, 
+    #e74c3c 80%, #e74c3c 100%);
+  /* Start invisible */
+  opacity: 0;
+  /* Animation: name duration delay fill-mode */
+  animation: fadeIn 0.5s 1.7s forwards;
+}
+
+/* Common styles for all decorative dots */
+.dot-1, .dot-2, .dot-3, .dot-4, .dot-5 {
+  /* Dot width */
+  width: 6px;
+  /* Dot height */
+  height: 6px;
+  /* Dark gray color */
+  background-color: #34495e;
+  /* Make it a perfect circle */
+  border-radius: 50%;
+  /* Start invisible */
+  opacity: 0;
+}
+
+/* First dot */
+.dot-1 {
+  /* Position from the top */
+  top: 15%;
+  /* Position from the left */
+  left: 40%;
+  /* Animation: name duration delay fill-mode */
+  animation: fadeIn 0.3s 2s forwards;
+}
+
+/* Second dot */
+.dot-2 {
+  /* Position from the top */
+  top: 18%;
+  /* Position from the left */
+  left: 43%;
+  /* Animation: name duration delay fill-mode */
+  animation: fadeIn 0.3s 2.1s forwards;
+}
+
+/* Third dot */
+.dot-3 {
+  /* Position from the top */
+  top: 21%;
+  /* Position from the left */
+  left: 46%;
+  /* Animation: name duration delay fill-mode */
+  animation: fadeIn 0.3s 2.2s forwards;
+}
+
+/* Fourth dot */
+.dot-4 {
+  /* Position from the top */
+  top: 24%;
+  /* Position from the left */
+  left: 49%;
+  /* Animation: name duration delay fill-mode */
+  animation: fadeIn 0.3s 2.3s forwards;
+}
+
+/* Fifth dot */
+.dot-5 {
+  /* Position from the top */
+  top: 27%;
+  /* Position from the left */
+  left: 52%;
+  /* Animation: name duration delay fill-mode */
+  animation: fadeIn 0.3s 2.4s forwards;
+}
+
+/* Common styles for graph nodes */
+.graph-node {
+  /* Node width */
+  width: 15px;
+  /* Node height */
+  height: 15px;
+  /* Blue color */
+  background-color: #3498db;
+  /* Make it a perfect circle */
+  border-radius: 50%;
+  /* Start invisible */
+  opacity: 0;
+}
+
+/* First graph node */
+.node-1 {
+  /* Position from the bottom */
+  bottom: 25%;
+  /* Position from the left */
+  left: 60%;
+  /* Animation: name duration delay fill-mode */
+  animation: fadeIn 0.3s 2.5s forwards;
+}
+
+/* Second graph node */
+.node-2 {
+  /* Position from the bottom */
+  bottom: 35%;
+  /* Position from the left */
+  left: 70%;
+  /* Animation: name duration delay fill-mode */
+  animation: fadeIn 0.3s 2.6s forwards;
+}
+
+/* Third graph node */
+.node-3 {
+  /* Position from the bottom */
+  bottom: 15%;
+  /* Position from the left */
+  left: 70%;
+  /* Animation: name duration delay fill-mode */
+  animation: fadeIn 0.3s 2.7s forwards;
+}
+
+/* Styles for graph edges (connecting lines) */
+.graph-edge {
+  /* Edge height/thickness */
+  height: 2px;
+  /* Blue color matching nodes */
+  background-color: #3498db;
+  /* Absolute positioning relative to drawing board */
+  position: absolute;
+  /* Set transform origin to left side for proper rotation */
+  transform-origin: left center;
+  /* Initial width (will be animated) */
+  width: 0;
+}
+
+/* First edge connecting nodes */
+.edge-1 {
+  /* Position from the bottom (same as node-1) */
+  bottom: 25%;
+  /* Position from the left (same as node-1) */
+  left: 60%;
+  /* Rotate edge upward 30 degrees */
+  transform: rotate(30deg);
+  /* Animation: name duration delay fill-mode */
+  animation: drawLine 0.8s 2.8s forwards;
+}
+
+/* Second edge connecting nodes */
+.edge-2 {
+  /* Position from the bottom (same as node-1) */
+  bottom: 25%;
+  /* Position from the left (same as node-1) */
+  left: 60%;
+  /* Rotate edge downward 30 degrees */
+  transform: rotate(-30deg);
+  /* Animation: name duration delay fill-mode */
+  animation: drawLine 0.8s 2.9s forwards;
+}
+
+/* Container for text content */
+.content {
+  /* Text alignment */
+  text-align: center;
+  /* Start with zero opacity */
+  opacity: 0;
+  /* Smooth transition for fade-in effect */
+  transition: opacity 1s ease;
+  /* Ensure content is above drawing elements */
+  position: relative;
+  /* Add space above content */
+  margin-top: 20px;
+}
+
+/* Visible state for content */
+.content.visible {
+  /* Full opacity when visible */
+  opacity: 1;
+}
+
+/* Common styles for all text elements */
+.title, .names, .project {
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+  /* Prevent text wrapping */
+  white-space: nowrap;
+  /* Center text */
+  text-align: center;
+  /* Ensure proper spacing */
+  margin: 0 auto;
+}
+
+/* Main title styling */
+.title {
+  /* Large font size */
+  font-size: 2.5rem;
+  /* Bold weight */
+  font-weight: 700;
+  /* Space below the title */
+  margin-bottom: 20px;
+  /* Dark text color */
+  color: #333;
+}
+
+/* Names styling */
+.names {
+  /* Medium font size */
+  font-size: 1.8rem;
+  /* Medium weight */
+  font-weight: 500;
+  /* Space below the names */
+  margin-bottom: 20px;
+  /* Slightly lighter text color */
+  color: #444;
+}
+
+/* Project title styling */
+.project {
+  /* Smaller font size */
+  font-size: 1.4rem;
+  /* Normal weight */
+  font-weight: 400;
+  /* Space below the project title */
+  margin-bottom: 40px;
+  /* Medium gray text color */
+  color: #555;
+}
+
+/* Container for each word in animated text */
+.word-wrapper {
+  /* Display as inline block for proper spacing */
+  display: inline-block;
+  /* Add space between words */
+  margin-right: 5px;
+}
+
+/* Space between words */
+.word-space {
+  /* Width of the space */
+  width: 8px;
+  /* Display as inline block */
+  display: inline-block;
+}
+
+/* Individual character animation */
+.animated-char {
+  /* Display as inline block for animation */
+  display: inline-block;
+  /* Start invisible */
+  opacity: 0;
+  /* Animation for each character */
+  animation: fadeInChar 0.5s forwards;
+}
+
+/* Enter button styling */
+.enter-button {
+  /* Blue background color */
+  background-color: #3498db;
+  /* White text color */
+  color: white;
+  /* Remove default button border */
+  border: none;
+  /* Internal padding */
+  padding: 12px 25px;
+  /* Rounded corners for a pill-like shape */
+  border-radius: 30px;
+  /* Hand cursor on hover */
+  cursor: pointer;
+  /* Font size */
+  font-size: 1.1rem;
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+  /* Start invisible */
+  opacity: 0;
+  /* Smooth transition for hover and visibility */
+  transition: all 0.3s ease;
+  /* Subtle shadow effect */
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+/* Visible state for enter button */
+.enter-button.visible {
+  /* Full opacity when visible */
+  opacity: 1;
+}
+
+/* Hover effect for enter button */
+.enter-button:hover {
+  /* Darker blue on hover */
+  background-color: #2980b9;
+  /* Slightly enlarge the button on hover */
+  transform: scale(1.05);
+  /* Enhanced shadow on hover */
+  box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Animation for drawing lines */
+@keyframes drawLine {
+  /* Starting state */
+  0% {
+    /* Zero width */
+    width: 0;
+    /* Fully visible */
+    opacity: 1;
+  }
+  /* Ending state */
+  100% {
+    /* Final width */
+    width: 100px;
+    /* Fully visible */
+    opacity: 1;
+  }
+}
+
+/* Animation for drawing circles */
+@keyframes drawCircle {
+  /* Starting state */
+  0% {
+    /* Zero scale (invisible) */
+    transform: scale(0);
+    /* Fully visible */
+    opacity: 1;
+  }
+  /* Ending state */
+  100% {
+    /* Full scale */
+    transform: scale(1);
+    /* Fully visible */
+    opacity: 1;
+  }
+}
+
+/* Animation for fading in elements */
+@keyframes fadeIn {
+  /* Starting state */
+  0% {
+    /* Invisible */
+    opacity: 0;
+  }
+  /* Ending state */
+  100% {
+    /* Fully visible */
+    opacity: 1;
+  }
+}
+
+/* Animation for fading in characters */
+@keyframes fadeInChar {
+  /* Starting state */
+  0% {
+    /* Invisible */
+    opacity: 0;
+    /* Slightly moved down */
+    transform: translateY(10px);
+  }
+  /* Ending state */
+  100% {
+    /* Fully visible */
+    opacity: 1;
+    /* Normal position */
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  /* Adjust drawing board on smaller screens */
+  .drawing-board {
+    /* Reduced padding */
+    padding: 20px;
+    /* Auto height */
+    height: auto;
+    /* Minimum height */
+    min-height: 300px;
+  }
+  
+  /* Smaller title on mobile */
+  .title {
+    /* Reduced font size */
+    font-size: 1.8rem;
+    /* Reduced bottom margin */
+    margin-bottom: 15px;
+  }
+  
+  /* Smaller names on mobile */
+  .names {
+    /* Reduced font size */
+    font-size: 1.4rem;
+    /* Reduced bottom margin */
+    margin-bottom: 15px;
+  }
+  
+  /* Smaller project title on mobile */
+  .project {
+    /* Reduced font size */
+    font-size: 1.1rem;
+    /* Reduced bottom margin */
+    margin-bottom: 30px;
+  }
+  
+  /* Adjust word wrapper on mobile */
+  .word-wrapper {
+    /* Allow words to break to next line */
+    display: inline;
+  }
+  
+  /* Adjust word spacing on mobile */
+  .word-space {
+    /* Reduced width */
+    width: 4px;
+  }
+} 

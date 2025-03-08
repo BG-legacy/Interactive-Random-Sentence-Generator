@@ -1,0 +1,165 @@
+/* Main container for the input form */
+.input-form {
+  /* White background for the form */
+  background-color: #fff;
+  /* Rounded corners for the form */
+  border-radius: 8px;
+  /* Internal spacing */
+  padding: 20px;
+  /* Space below the form */
+  margin-bottom: 20px;
+  /* Subtle shadow effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* For positioning decorative elements */
+  position: relative;
+  /* Hide any content that exceeds the container */
+  overflow: hidden;
+}
+
+/* Decorative circle element in the top right corner */
+.input-form::before {
+  /* Create a pseudo-element */
+  content: '';
+  /* Absolute positioning relative to parent */
+  position: absolute;
+  /* Position from the top */
+  top: 15px;
+  /* Position from the right */
+  right: 15px;
+  /* Width of the circle */
+  width: 30px;
+  /* Height of the circle */
+  height: 30px;
+  /* Blue border for the circle */
+  border: 2px solid #3498db;
+  /* Make it a perfect circle */
+  border-radius: 50%;
+  /* Make it semi-transparent */
+  opacity: 0.2;
+}
+
+/* Heading style for the form */
+.input-form h2 {
+  /* Remove default top margin */
+  margin-top: 0;
+  /* Dark gray text color */
+  color: #333;
+  /* Space below the heading */
+  margin-bottom: 20px;
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+  /* For the underline positioning */
+  position: relative;
+  /* Make the heading inline-block for the underline effect */
+  display: inline-block;
+}
+
+/* Underline effect for the heading */
+.input-form h2::after {
+  /* Create a pseudo-element */
+  content: '';
+  /* Absolute positioning relative to parent */
+  position: absolute;
+  /* Position at the bottom */
+  bottom: -5px;
+  /* Position from the left */
+  left: 0;
+  /* Full width of the parent */
+  width: 100%;
+  /* Height of the underline */
+  height: 2px;
+  /* Blue color for the underline */
+  background-color: #3498db;
+}
+
+/* Container for each form input group */
+.form-group {
+  /* Space below each form group */
+  margin-bottom: 15px;
+}
+
+/* Style for form labels */
+.form-group label {
+  /* Make labels block elements */
+  display: block;
+  /* Space below each label */
+  margin-bottom: 5px;
+  /* Bold font weight */
+  font-weight: 600;
+  /* Dark gray text color */
+  color: #555;
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+}
+
+/* Shared styles for input fields and dropdowns */
+.form-group input,
+.form-group select {
+  /* Full width of the container */
+  width: 100%;
+  /* Internal padding */
+  padding: 10px;
+  /* Light gray border */
+  border: 1px solid #ddd;
+  /* Rounded corners */
+  border-radius: 4px;
+  /* Font size */
+  font-size: 16px;
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+  /* Smooth transition for hover/focus effects */
+  transition: border-color 0.3s;
+}
+
+/* Focus styles for input fields and dropdowns */
+.form-group input:focus,
+.form-group select:focus {
+  /* Remove default focus outline */
+  outline: none;
+  /* Blue border when focused */
+  border-color: #3498db;
+  /* Subtle glow effect when focused */
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Style for the add button */
+.add-button {
+  /* Blue background color */
+  background-color: #3498db;
+  /* White text color */
+  color: white;
+  /* Remove default button border */
+  border: none;
+  /* Internal padding */
+  padding: 10px 15px;
+  /* Rounded corners for a pill-like shape */
+  border-radius: 30px;
+  /* Hand cursor on hover */
+  cursor: pointer;
+  /* Font size */
+  font-size: 16px;
+  /* Smooth transition for hover effects */
+  transition: all 0.3s;
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+  /* Subtle shadow effect */
+  box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Hover effect for the add button */
+.add-button:hover {
+  /* Darker blue on hover */
+  background-color: #2980b9;
+  /* Slightly enlarge the button on hover */
+  transform: scale(1.05);
+  /* Enhanced shadow on hover */
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.4);
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  /* Adjust form padding on smaller screens */
+  .input-form {
+    padding: 15px;
+  }
+} 

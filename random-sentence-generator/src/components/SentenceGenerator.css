@@ -1,0 +1,318 @@
+/* Main container for the sentence generator component */
+.sentence-generator {
+  /* White background for the container */
+  background-color: #fff;
+  /* Rounded corners */
+  border-radius: 8px;
+  /* Internal spacing */
+  padding: 20px;
+  /* Subtle shadow effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* For positioning decorative elements */
+  position: relative;
+  /* Hide any content that exceeds the container */
+  overflow: hidden;
+}
+
+/* Decorative line element at the bottom left */
+.sentence-generator::before {
+  /* Create a pseudo-element */
+  content: '';
+  /* Absolute positioning relative to parent */
+  position: absolute;
+  /* Position from the bottom */
+  bottom: 20px;
+  /* Position from the left */
+  left: 20px;
+  /* Width of the line */
+  width: 80px;
+  /* Height of the line */
+  height: 2px;
+  /* Red color for the line */
+  background-color: #e74c3c;
+  /* Make it semi-transparent */
+  opacity: 0.5;
+}
+
+/* Decorative circle element at the top right */
+.sentence-generator::after {
+  /* Create a pseudo-element */
+  content: '';
+  /* Absolute positioning relative to parent */
+  position: absolute;
+  /* Position from the top */
+  top: 20px;
+  /* Position from the right */
+  right: 20px;
+  /* Width of the circle */
+  width: 20px;
+  /* Height of the circle */
+  height: 20px;
+  /* Orange border for the circle */
+  border: 2px solid #f39c12;
+  /* Make it a perfect circle */
+  border-radius: 50%;
+  /* Make it semi-transparent */
+  opacity: 0.3;
+}
+
+/* Heading style for the sentence generator */
+.sentence-generator h2 {
+  /* Remove default top margin */
+  margin-top: 0;
+  /* Dark gray text color */
+  color: #333;
+  /* Space below the heading */
+  margin-bottom: 20px;
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+  /* For the underline positioning */
+  position: relative;
+  /* Make the heading inline-block for the underline effect */
+  display: inline-block;
+}
+
+/* Underline effect for the heading */
+.sentence-generator h2::after {
+  /* Create a pseudo-element */
+  content: '';
+  /* Absolute positioning relative to parent */
+  position: absolute;
+  /* Position at the bottom */
+  bottom: -5px;
+  /* Position from the left */
+  left: 0;
+  /* Full width of the parent */
+  width: 100%;
+  /* Height of the underline */
+  height: 2px;
+  /* Blue color for the underline */
+  background-color: #3498db;
+}
+
+/* Container for the word bank section */
+.word-bank {
+  /* Space below the word bank */
+  margin-bottom: 20px;
+}
+
+/* Heading for the word bank section */
+.word-bank h3 {
+  /* Dark gray text color */
+  color: #444;
+  /* Space below the heading */
+  margin-bottom: 15px;
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+}
+
+/* Grid layout for word categories */
+.word-categories {
+  /* Use CSS grid for layout */
+  display: grid;
+  /* Responsive grid columns that adjust based on available width */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* Space between grid items */
+  gap: 15px;
+}
+
+/* Individual word category card */
+.word-category {
+  /* White background for the card */
+  background-color: white;
+  /* Rounded corners */
+  border-radius: 6px;
+  /* Internal spacing */
+  padding: 15px;
+  /* Subtle shadow effect */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /* Blue accent border on the left */
+  border-left: 3px solid #3498db;
+  /* Smooth transition for hover effects */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for word category cards */
+.word-category:hover {
+  /* Slight upward movement on hover */
+  transform: translateY(-3px);
+  /* Enhanced shadow on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Red accent color for the second category (verbs) */
+.word-category:nth-child(2) {
+  border-left-color: #e74c3c;
+}
+
+/* Green accent color for the third category (adjectives) */
+.word-category:nth-child(3) {
+  border-left-color: #2ecc71;
+}
+
+/* Orange accent color for the fourth category (adverbs) */
+.word-category:nth-child(4) {
+  border-left-color: #f39c12;
+}
+
+/* Heading style for each word category */
+.word-category h4 {
+  /* Remove default top margin */
+  margin-top: 0;
+  /* Dark gray text color */
+  color: #555;
+  /* Light gray bottom border */
+  border-bottom: 1px solid #eee;
+  /* Space below the border */
+  padding-bottom: 8px;
+  /* Space below the heading */
+  margin-bottom: 10px;
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+}
+
+/* List container for words */
+.word-category ul {
+  /* Remove default bullet points */
+  list-style-type: none;
+  /* Remove default left padding */
+  padding-left: 0;
+  /* Remove default margins */
+  margin: 0;
+}
+
+/* Individual word list item */
+.word-category li {
+  /* Vertical padding for list items */
+  padding: 5px 0;
+  /* Smaller font size for words */
+  font-size: 14px;
+  /* Medium gray text color */
+  color: #666;
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+}
+
+/* Message displayed when a category has no words */
+.empty-message {
+  /* Light gray text color */
+  color: #999;
+  /* Italic style for emphasis */
+  font-style: italic;
+  /* Smaller font size */
+  font-size: 14px;
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+}
+
+/* Style for the generate sentence button */
+.generate-button {
+  /* Blue background color */
+  background-color: #3498db;
+  /* White text color */
+  color: white;
+  /* Remove default button border */
+  border: none;
+  /* Internal padding */
+  padding: 12px 20px;
+  /* Rounded corners for a pill-like shape */
+  border-radius: 30px;
+  /* Hand cursor on hover */
+  cursor: pointer;
+  /* Font size */
+  font-size: 16px;
+  /* Smooth transition for hover effects */
+  transition: all 0.3s;
+  /* Space below the button */
+  margin-bottom: 20px;
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+  /* Subtle shadow effect */
+  box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Hover effect for the generate button when not disabled */
+.generate-button:hover:not(:disabled) {
+  /* Darker blue on hover */
+  background-color: #2980b9;
+  /* Slightly enlarge the button on hover */
+  transform: scale(1.05);
+  /* Enhanced shadow on hover */
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.4);
+}
+
+/* Style for the disabled generate button */
+.generate-button:disabled {
+  /* Gray background when disabled */
+  background-color: #cccccc;
+  /* Not-allowed cursor to indicate button is disabled */
+  cursor: not-allowed;
+}
+
+/* Container for the generated sentence */
+.generated-sentence {
+  /* White background */
+  background-color: white;
+  /* Rounded corners */
+  border-radius: 6px;
+  /* Internal padding */
+  padding: 15px;
+  /* Space above the container */
+  margin-top: 20px;
+  /* Subtle shadow effect */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /* For positioning the accent bar */
+  position: relative;
+  /* Hide any content that exceeds the container */
+  overflow: hidden;
+}
+
+/* Blue accent bar on the left side of the generated sentence */
+.generated-sentence::before {
+  /* Create a pseudo-element */
+  content: '';
+  /* Absolute positioning relative to parent */
+  position: absolute;
+  /* Position at the top */
+  top: 0;
+  /* Position at the left */
+  left: 0;
+  /* Width of the accent bar */
+  width: 5px;
+  /* Full height of the parent */
+  height: 100%;
+  /* Blue color for the accent bar */
+  background-color: #3498db;
+}
+
+/* Heading for the generated sentence section */
+.generated-sentence h3 {
+  /* Remove default top margin */
+  margin-top: 0;
+  /* Dark gray text color */
+  color: #444;
+  /* Space below the heading */
+  margin-bottom: 10px;
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+}
+
+/* Style for the generated sentence text */
+.generated-sentence p {
+  /* Larger font size for better readability */
+  font-size: 18px;
+  /* Dark text color */
+  color: #333;
+  /* Increased line height for better readability */
+  line-height: 1.5;
+  /* Monospace font for a technical look */
+  font-family: 'Courier New', monospace;
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  /* Change grid to single column on small screens */
+  .word-categories {
+    grid-template-columns: 1fr;
+  }
+} 
